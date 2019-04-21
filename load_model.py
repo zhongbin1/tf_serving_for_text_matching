@@ -26,7 +26,7 @@ class Sim_Model(object):
 
         scores_ = self.sess.run(self.scores, feed_dict={self.input_left:query, self.input_right:docs,
                                                    self.keep_prob:1.0})
-        return scores_
+        return scores_[:, -1].tolist()
 
 if __name__ == '__main__':
     input_left = [[1, 2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
@@ -35,5 +35,6 @@ if __name__ == '__main__':
     model = Sim_Model()
 
     result = model.inference(input_left, input_right)
-    print(result)
+
+    print(result.tolist())
 
