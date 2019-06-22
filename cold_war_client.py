@@ -4,6 +4,10 @@ import json
 import requests
 import time
 
+# docker run -p 8500:8500 -p 8501:8501 \
+#   --mount type=bind,source=/Users/zb/code/deeplearning/Text\ Matching/bert_sim/saved_model_0622,target=/models/serving_model \
+#   -e MODEL_NAME=serving_model -t tensorflow/serving
+
 textmod = {}
 textmod["inputs"] = {"input_left": [[1, 2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
                      "input_right": [[1, 2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
